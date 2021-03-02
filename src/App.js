@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import data from './data.json';
 import {connect} from 'react-redux'
-
+import data from './data.json';
+import DisplayBooks from "./DisplayBooks";
 
 class App extends Component {
-constructor(props){
-  super();
-  this.state={
-    books:data
-  };
-}
+
+  //TODO: load data from data.json into a Redux store with the LOAD_BOOKS action
 
   render() {
     return (
       <div className="App">
-        {this.state.books.map((book)=> (
-          <div>
-            {book.title}
-          </div>
-        ))}
+        <h1>
+          Welcome to Circadence's Front End Interview!
+          <br/>
+          See README for instructions to get started!
+        </h1>
       </div>
     );
   }
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
