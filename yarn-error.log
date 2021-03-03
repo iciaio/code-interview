@@ -32,7 +32,7 @@ npm manifest:
       "build": "react-scripts build"
     },
     "compilebox": {
-      "defaultFile": "src/App.js"
+      "defaultFile": "src/ClassApp.js"
     }
   }
 

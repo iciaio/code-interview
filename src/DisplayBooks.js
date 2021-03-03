@@ -2,11 +2,12 @@ import React from "react";
 
 //A simple component to display a list of books
 function DisplayBooks({books}){
+  console.log(books);
   return books.map(book=>
-    <div style={{margin: 30}}>
+    <div key={book.id} style={{margin: 30, display: 'flex-wrap'}}>
       <div>{book.title}</div>
       <div>{book.author}</div>
-      <div>{book.publisher}</div>
+      <img src={book.cover} alt={book.title} height={200}/>
     </div>
   );
 }

@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-
+import ClassApp from './ClassApp';
+import FunctionalApp from './FunctionalApp';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import reducer from './reducers/reducer';
+import store from './store';
 
-const store = createStore(reducer);
+//TODO: if you are more comfortable with functional components and hooks,
+// you can replace the ClassApp component with FunctionalApp
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ClassApp />
   </Provider>, 
   document.getElementById('root')
 );
