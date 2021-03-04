@@ -5,7 +5,7 @@ import {deleteBookAction, loadBooksAction} from "./reducers/actions";
 import booksData from "./data.json";
 import {getBooks} from "./reducers/selectors";
 
-class ClassApp extends Component {
+export class ClassApp extends Component {
   constructor() {
     super();
     this.state = {
@@ -44,7 +44,7 @@ class ClassApp extends Component {
         <button onClick={this.handleClickToLoadBooks} style={{margin: 30}}>Load Books</button>
         <label htmlFor='bookToDelete'>ISBN of book to delete: </label>
         <input onChange={this.handleInputIsbn} name='bookToDelete'/>
-        <button disabled={!this.state.isIsbnValid} onClick={this.handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
+        <button name="deleteButton" disabled={!this.state.isIsbnValid} onClick={this.handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           <DisplayBooks books={this.props.books}/>
         </div>

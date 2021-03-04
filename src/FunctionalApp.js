@@ -42,7 +42,7 @@ const FunctionalApp = () => {
       <button onClick={handleClickToLoadBooks} style={{margin: 30}}>Load Books</button>
       <label for='bookToDelete'>ISBN of book to delete: </label>
       <input onChange={handleInputIsbn} name='bookToDelete'/>
-      <button disabled={!isIsbnValid} onClick={handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
+      <button name="deleteButton" disabled={!isIsbnValid} onClick={handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         <DisplayBooks books={state.books}/>
       </div>
