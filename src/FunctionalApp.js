@@ -13,17 +13,22 @@ const FunctionalApp = () => {
     );
 
   const [bookToDelete, setBookToDelete] = useState();
+  const [isIsbnValid, setIsIsbnValid] = useState(false);
 
   const handleClickToLoadBooks = () => {
     dispatch(loadBooksAction(booksData));
   }
 
   const handleClickToDeleteBook = () => {
-    dispatch(deleteBookAction(parseInt(bookToDelete)))
+    dispatch(deleteBookAction(bookToDelete))
   }
 
-  const handleInputId = (e) => {
-    setBookToDelete(e.target.value);
+  const handleInputIsbn = (e) => {
+    const isbnInput = e.target.value;
+    setBookToDelete(isbnInput);
+    const match = "\^[0-9](-)[0-9]{4}(-)[0-9]{4}(-)[1-9]\$"
+    const isValid = isbnInput.match(match);
+    setIsIsbnValid(isValid);
   }
 
   return (
@@ -35,9 +40,9 @@ const FunctionalApp = () => {
         See README for instructions to get started!
       </h2>
       <button onClick={handleClickToLoadBooks} style={{margin: 30}}>Load Books</button>
-      <label for='bookToDelete'>Id of book to delete: </label>
-      <input onChange={handleInputId} name='bookToDelete'/>
-      <button onClick={handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
+      <label for='bookToDelete'>ISBN of book to delete: </label>
+      <input onChange={handleInputIsbn} name='bookToDelete'/>
+      <button disabled={!isIsbnValid} onClick={handleClickToDeleteBook} style={{margin: 30}}>Delete Book</button>
       <div style={{display: 'flex', flexWrap: 'wrap'}}>
         <DisplayBooks books={state.books}/>
       </div>

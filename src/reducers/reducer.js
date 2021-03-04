@@ -5,7 +5,7 @@ const reducer = (state , action) => {
     case 'LOAD_BOOKS':
        return {books: action.payload};
     case 'DELETE_BOOK':
-      return {books: getBooks(state).filter(book => book.id !== action.payload )};
+      return {books: getBooks(state).filter(book => book.isbn !== action.payload )};
     default:
       return {books: []}
   }
